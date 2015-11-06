@@ -1,0 +1,29 @@
+{
+  "name": "redmoon",
+  "version": "0.9.0",
+  "author": {
+    "name": "egg",
+    "email": "i@egg.pe.kr"
+  },
+  "description": "Asynchronous broker for multi-source data collection",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/egg-/redmoon.git"
+  },
+  "keywords": [
+    "collec",
+    "broker",
+    "redis",
+    "pub",
+    "sub"
+  ],
+  "license": "MIT",
+  "main": "./index",
+  "devDependencies": {},
+  "dependencies": {
+    "node-redis-pubsub": "^0.6.0",
+    "redis": "^2.3.0",
+    "shortid": "^2.2.4"
+  }
+}

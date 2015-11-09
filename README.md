@@ -18,9 +18,9 @@ redmoon.on('error', function(err) {
 
 // express
 app.get('/search/:key/:page/:limit?', function (req, res) {
-  redmoon.load(function (err, items, metas) {
+  redmoon.load(function (err, items, meta) {
     res.json({
-      metas: metas,
+      metas: meta,
       items: items
     })
   }, req.params.key, req.params.page, req.params.limit)

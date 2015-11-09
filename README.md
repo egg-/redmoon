@@ -20,13 +20,15 @@ redmoon.on('error', function(err) {
 app.get('/search/:key/:page/:limit?', function (req, res) {
   redmoon.load(function (err, items, meta) {
     res.json({
-      metas: meta,
+      meta: meta,
       items: items
     })
   }, req.params.key, req.params.page, req.params.limit)
 })
 
 // collector
+// The first event is no meta data in moon.
+// Thus, the logic required for implementation so as to avoid unnecessary requests using totalcount.
 redmoon.subscribe(function (moon) {
   var provider = ['youtube', 'dailymotion']
   for (var i = 0; i < provider.length; i++) {
@@ -39,7 +41,7 @@ redmoon.subscribe(function (moon) {
       redmoon.add(function (err) {
         redmoon.trigger(param.topic)
       }, moon, meta, result.items)
-    }, provider[i], moon.key)
+    }, provider[i], moon)
   }
 })
 
@@ -53,7 +55,7 @@ connect redis.
 
 ### redmoon.events()
 
-initialize redmon events.
+initialize redmoon events.
 * error
 * ready
 * connect
@@ -68,11 +70,11 @@ if not exist data then trigger event for collection.
 
 add collected data to cache.
 
-### redmoon.subscribe(cb)
+### redmoon.subscribe(cb(err, moon))
 
 set callback function for the collection event.
 
-### redmoon.unsubscribe(cb)
+### redmoon.unsubscribe(cb())
 
 unset callback function for the collection event.
 
@@ -92,7 +94,6 @@ create Redmoon instance with config.
 ## Todo
 
 * Garbage collector.
-* Events for additional data collection.
 
 ## Release History
 

@@ -1,3 +1,10 @@
+# 1.0.0
+
+2015-11-12
+
+- add garbage collector.
+- improve multiple request processing logic.
+
 # 0.9.1
 
 2015-11-09

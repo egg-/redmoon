@@ -1,3 +1,9 @@
+# 1.0.1
+
+2015-11-14
+
+- fixed bug that additional data collection.
+
 # 1.0.0
 
 2015-11-12

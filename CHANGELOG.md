@@ -1,3 +1,9 @@
+# 1.0.2
+
+2015-11-14
+
+add random string to topic to permit duplicate request.
+
 # 1.0.1
 
 2015-11-14
